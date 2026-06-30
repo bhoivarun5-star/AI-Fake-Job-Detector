@@ -1,0 +1,23 @@
+# Virtual Environment
+venv/
+
+# Node modules
+node_modules/
+detector_frontend/node_modules/
+detector_frontend/dist/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django files
+db.sqlite3
+detector_project/fake_job_postings.csv
+
+# IDEs and local configurations
+.vscode/
+.idea/
+.env
+.DS_Store

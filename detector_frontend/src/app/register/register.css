@@ -1,0 +1,430 @@
+/* Theme Scopes */
+.theme-light {
+  --register-bg-color: #f0f7ff;
+  --register-bg-pattern: linear-gradient(135deg, #e0f2fe 0%, #f0f7ff 100%);
+  --register-card-bg: #ffffff;
+  --register-card-border: rgba(14, 165, 233, 0.12);
+  --register-text-color: #0f172a;
+  --register-text-muted: #475569;
+  --register-input-bg: #f8fafc;
+  --register-input-border: #bae6fd;
+  --register-input-text: #0f172a;
+  --register-input-focus-border: #0ea5e9;
+  --register-input-focus-ring: rgba(14, 165, 233, 0.18);
+  
+  --register-btn-bg: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  --register-btn-text: #ffffff;
+  --register-btn-hover: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  --register-btn-shadow: rgba(2, 132, 199, 0.25);
+  
+  --register-card-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.08), 0 8px 10px -6px rgba(2, 132, 199, 0.05);
+  --toggle-btn-bg: rgba(14, 165, 233, 0.08);
+  --toggle-btn-border: rgba(14, 165, 233, 0.2);
+  --toggle-btn-text: #0369a1;
+  
+  --register-alert-bg: rgba(239, 68, 68, 0.08);
+  --register-alert-border: rgba(239, 68, 68, 0.2);
+  --register-alert-text: #ef4444;
+  
+  --register-success-bg: rgba(16, 185, 129, 0.08);
+  --register-success-border: rgba(16, 185, 129, 0.2);
+  --register-success-text: #10b981;
+}
+
+.theme-dark {
+  --register-bg-color: #0b0f19;
+  --register-bg-pattern: radial-gradient(circle at 0% 0%, #1e1b4b 0%, #0b0f19 70%);
+  --register-card-bg: rgba(22, 30, 49, 0.65);
+  --register-card-border: rgba(255, 255, 255, 0.06);
+  --register-text-color: #f1f5f9;
+  --register-text-muted: #94a3b8;
+  --register-input-bg: rgba(15, 23, 42, 0.8);
+  --register-input-border: rgba(255, 255, 255, 0.1);
+  --register-input-text: #f8fafc;
+  --register-input-focus-border: #818cf8;
+  --register-input-focus-ring: rgba(129, 140, 248, 0.25);
+  
+  --register-btn-bg: linear-gradient(135deg, #818cf8 0%, #6366f1 100%);
+  --register-btn-text: #0b0f19;
+  --register-btn-hover: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  --register-btn-shadow: rgba(129, 140, 248, 0.35);
+  
+  --register-card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --toggle-btn-bg: rgba(255, 255, 255, 0.05);
+  --toggle-btn-border: rgba(255, 255, 255, 0.1);
+  --toggle-btn-text: #cbd5e1;
+  
+  --register-alert-bg: rgba(248, 113, 113, 0.1);
+  --register-alert-border: rgba(248, 113, 113, 0.25);
+  --register-alert-text: #f87171;
+  
+  --register-success-bg: rgba(52, 211, 153, 0.1);
+  --register-success-border: rgba(52, 211, 153, 0.25);
+  --register-success-text: #34d399;
+}
+
+/* Page Layout Styles */
+.register-container-wrapper {
+  background: var(--register-bg-pattern);
+  background-color: var(--register-bg-color);
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  transition: background-color 0.4s ease, background 0.4s ease;
+  z-index: 9999;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 40px 16px;
+}
+
+/* Theme Toggle Control Position */
+.register-theme-toggle {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10000;
+}
+
+.toggle-button {
+  background: var(--toggle-btn-bg);
+  border: 1px solid var(--toggle-btn-border);
+  color: var(--toggle-btn-text);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.toggle-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px -2px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* register Card Container */
+.register-card {
+  background: var(--register-card-bg);
+  border: 1px solid var(--register-card-border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: var(--register-card-shadow);
+  text-align: center;
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.register-header {
+  margin-bottom: 16px;
+}
+
+.logo-badge {
+  font-size: 24px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.register-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--register-text-color);
+  margin: 0 0 4px 0;
+  transition: color 0.4s ease;
+}
+
+.register-header p {
+  font-size: 13px;
+  color: var(--register-text-muted);
+  line-height: 1.4;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+/* Alert Boxes */
+.register-alert {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  text-align: left;
+  margin-bottom: 16px;
+  line-height: 1.35;
+}
+
+.danger-alert {
+  background-color: var(--register-alert-bg);
+  border: 1px solid var(--register-alert-border);
+  color: var(--register-alert-text);
+}
+
+/* Input Fields styling */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.register-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+}
+
+.register-input-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--register-text-color);
+  transition: color 0.4s ease;
+}
+
+.register-input-group input {
+  background-color: var(--register-input-bg);
+  border: 1px solid var(--register-input-border);
+  color: var(--register-input-text);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 13.5px;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.register-input-group input:focus {
+  outline: none;
+  border-color: var(--register-input-focus-border);
+  box-shadow: 0 0 0 3px var(--register-input-focus-ring);
+}
+
+/* register Extra Options (Remember/Forgot) */
+.register-options {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 13.5px;
+  margin-top: 4px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 24px;
+  cursor: pointer;
+  color: var(--register-text-color);
+  user-select: none;
+  font-weight: 500;
+  transition: color 0.4s ease;
+  text-align: left;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 1.5px;
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border-radius: 4px;
+  background-color: var(--register-input-bg);
+  border: 1px solid var(--register-input-border);
+  transition: all 0.2s ease;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--register-input-focus-border);
+  border-color: var(--register-input-focus-border);
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.checkbox-container .checkmark::after {
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.terms-link,
+.login-link-btn {
+  color: var(--register-input-focus-border);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.terms-link:hover {
+  opacity: 0.85;
+  text-decoration: underline;
+}
+
+.login-link-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  display: inline;
+}
+
+.login-link-btn:hover {
+  text-decoration: underline;
+}
+
+/* Sign In Button styling */
+.register-submit-btn {
+  background: var(--register-btn-bg);
+  border: none;
+  color: var(--register-btn-text);
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 10px var(--register-btn-shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.register-submit-btn:hover:not(:disabled) {
+  background: var(--register-btn-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px var(--register-btn-shadow);
+}
+
+.register-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-spinner-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: currentColor;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Success State styling */
+.register-success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.success-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--register-success-bg);
+  border: 1px solid var(--register-success-border);
+  color: var(--register-success-text);
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.register-success-state h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--register-text-color);
+  margin: 0;
+}
+
+.register-success-state p {
+  font-size: 14px;
+  color: var(--register-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Footer link styling */
+.register-footer {
+  margin-top: 24px;
+  font-size: 13.5px;
+  color: var(--register-text-muted);
+}
+
+.register-footer p {
+  margin: 0;
+}
+
+/* Responsive Rules */
+@media (max-width: 480px) {
+  .register-card {
+    padding: 24px 16px;
+    border-radius: 16px;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+  }
+  .register-container-wrapper {
+    background: var(--register-card-bg);
+    padding: 16px;
+  }
+  .register-theme-toggle {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
