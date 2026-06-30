@@ -28,3 +28,9 @@ body {
   text-align: center;
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  #root {
+    padding: 1rem 12px;
+  }
+}
